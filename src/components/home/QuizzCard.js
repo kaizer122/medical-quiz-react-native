@@ -7,49 +7,9 @@ import { NavigationEvents } from 'react-navigation';
 import { useNavigation } from 'react-navigation-hooks';
 import { SharedElement } from 'react-navigation-shared-element';
 import { metrics, scale } from '../../helpers';
-const { width } = metrics;
-const CARD_WIDTH = width - scale(80);
-const CARD_HEIGHT = scale(380);
-const styles = StyleSheet.create({
-  quizz: {
-    flex: 1,
-    elevation: 10,
-  },
-  image: {
-    height: CARD_HEIGHT,
-    width: CARD_WIDTH,
-    borderRadius: 10,
-  },
-  title: {
-    paddingTop: scale(10),
-    fontSize: 34,
-    color: '#FFF',
-  },
-  overlay: {
-    flex: 1,
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    opacity: 0.2,
-    backgroundColor: 'black',
-    height: CARD_HEIGHT,
-    width: CARD_WIDTH,
-    borderRadius: 10,
-  },
-  bottomContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    paddingHorizontal: scale(10),
-    paddingBottom: scale(5),
-    flexDirection: 'row',
-    width: CARD_WIDTH,
-    borderRadius: 10,
-    justifyContent: 'space-between',
-  },
-  captionStyle: { color: '#FFF' },
-  textPadding: { padding: scale(20) },
-});
+const { width, height } = metrics;
+export const CARD_WIDTH = width - scale(80);
+export const CARD_HEIGHT = (height * 10) / 16 - scale(40);
 
 export default ({ quizz }) => {
   const [opacity, setOpacity] = useState(1);
@@ -101,3 +61,44 @@ export default ({ quizz }) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  quizz: {
+    flex: 1,
+    elevation: 10,
+  },
+  image: {
+    height: CARD_HEIGHT,
+    width: CARD_WIDTH,
+    borderRadius: 10,
+  },
+  title: {
+    paddingTop: scale(10),
+    fontSize: 34,
+    color: '#FFF',
+  },
+  overlay: {
+    flex: 1,
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    opacity: 0.2,
+    backgroundColor: 'black',
+    height: CARD_HEIGHT,
+    width: CARD_WIDTH,
+    borderRadius: 10,
+  },
+  bottomContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    paddingHorizontal: scale(10),
+    paddingBottom: scale(5),
+    flexDirection: 'row',
+    width: CARD_WIDTH,
+    borderRadius: 10,
+    justifyContent: 'space-between',
+  },
+  captionStyle: { color: '#FFF' },
+  textPadding: { padding: scale(20) },
+});

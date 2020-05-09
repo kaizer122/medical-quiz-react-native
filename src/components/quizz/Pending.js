@@ -56,7 +56,13 @@ export default ({ title, instructions, setQuizzState }) => {
 };
 
 const styles = StyleSheet.create({
-  flex: { flex: 1 },
+  flex: {
+    flex: 1,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
   containerAnimating: {
     position: 'absolute',
     bottom: scale(320) - metrics.height,
@@ -72,7 +78,8 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     width: metrics.width,
-    height: scale(320),
+    paddingBottom: scale(56),
+    // height: scale(320),
     elevation: 4,
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,

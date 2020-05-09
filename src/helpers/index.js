@@ -1,5 +1,5 @@
-import { scale } from './functions';
+import { exactScale, scale } from './functions';
 import metrics from './metrics';
 
-export { metrics, scale };
+export { metrics, scale, exactScale };
 

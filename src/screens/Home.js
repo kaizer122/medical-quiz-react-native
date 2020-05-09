@@ -1,14 +1,14 @@
 import React from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { useTheme } from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
 import doctorQuestions from '../../config/questions/doctorQuizz.json';
 import symtopQuestions from '../../config/questions/symptomsQuizz.json';
 import ActionCard from '../components/home/ActionCard';
-import QuizzCard from '../components/home/QuizzCard';
-import { scale } from '../helpers';
-const { width } = Dimensions.get('window');
+import QuizzCard, { CARD_HEIGHT, CARD_WIDTH } from '../components/home/QuizzCard';
+import { metrics, scale } from '../helpers';
+const { width } = metrics;
 const quizzs = [
   {
     id: 'quizz1',
@@ -73,25 +73,6 @@ const homeCards = [
     path: null,
   },
 ];
-const styles = StyleSheet.create({
-  homeCardsContainer: {
-    flex: 6,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginTop: scale(20),
-  },
-  quizzCardsContainer: {
-    alignItems: 'center',
-    flex: 10,
-    marginTop: 30,
-  },
-  container: {
-    flex: 1,
-    alignItems: 'center',
-  },
-});
 
 export default () => {
   const { colors } = useTheme();
@@ -120,7 +101,8 @@ export default () => {
             data={quizzs}
             renderItem={_renderItem}
             sliderWidth={width}
-            itemWidth={width - 80}
+            itemHeight={CARD_HEIGHT}
+            itemWidth={CARD_WIDTH}
             firstItem={1}
             hasParallaxImages={true}
           />
@@ -129,3 +111,23 @@ export default () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  homeCardsContainer: {
+    flex: 6,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: scale(20),
+  },
+  quizzCardsContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 10,
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+  },
+});

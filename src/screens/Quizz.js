@@ -1,50 +1,17 @@
 import React from 'react';
-import { Dimensions, Image, StyleSheet } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import { View as AnimatableView } from 'react-native-animatable';
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 import { useTheme } from 'react-native-paper';
-import Animated, {
-  and,
-  block,
-  call,
-  cond,
-  eq,
-  Extrapolate,
-  interpolate,
-  set,
-  useCode,
-} from 'react-native-reanimated';
-import {
-  onGestureEvent,
-  snapPoint,
-  timing,
-  useValues,
-} from 'react-native-redash';
+import Animated, { and, block, call, cond, eq, Extrapolate, interpolate, set, useCode } from 'react-native-reanimated';
+import { onGestureEvent, snapPoint, timing, useValues } from 'react-native-redash';
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from 'react-navigation-hooks';
 import { SharedElement } from 'react-navigation-shared-element';
 import { useMemoOne } from 'use-memo-one';
 import QuizzHandler from '../components/quizz/QuizzHandler';
-import { scale } from '../helpers';
-const { width, height } = Dimensions.get('window');
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  image: {
-    width,
-    height: height,
-  },
-  thumbnailOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    elevation: 10,
-    zIndex: 10,
-    paddingVertical: scale(5),
-    paddingLeft: scale(5),
-  },
-});
+import { metrics, scale } from '../helpers';
+const { width, height } = metrics;
 
 const Quizz = () => {
   const { goBack, getParam } = useNavigation();
@@ -120,30 +87,32 @@ const Quizz = () => {
           transform: [{ translateX }, { translateY }, { scale }],
         },
       ]}>
-      <PanGestureHandler {...gestureHandler}>
-        <Animated.View>
-          <SharedElement id={quizz.id}>
-            <Image
-              style={styles.image}
-              resizeMode="cover"
-              source={quizz.picture}
-            />
-          </SharedElement>
-        </Animated.View>
-      </PanGestureHandler>
-      <AnimatableView
-        animation="fadeIn"
-        delay={100}
-        style={styles.thumbnailOverlay}>
-        <Icon.Button
-          name="x"
-          color={colors.text}
-          backgroundColor="transparent"
-          underlayColor="transparent"
-          onPress={() => goBack()}
-        />
-      </AnimatableView>
-      <QuizzHandler {...quizz} />
+      <View style={styles.container}>
+        <PanGestureHandler {...gestureHandler}>
+          <Animated.View>
+            <SharedElement id={quizz.id}>
+              <Image
+                style={styles.image}
+                resizeMode="cover"
+                source={quizz.picture}
+              />
+            </SharedElement>
+          </Animated.View>
+        </PanGestureHandler>
+        <AnimatableView
+          animation="fadeIn"
+          delay={100}
+          style={styles.thumbnailOverlay}>
+          <Icon.Button
+            name="x"
+            color={colors.text}
+            backgroundColor="transparent"
+            underlayColor="transparent"
+            onPress={() => goBack()}
+          />
+        </AnimatableView>
+        <QuizzHandler {...quizz} />
+      </View>
     </Animated.View>
   );
 };
@@ -153,3 +122,22 @@ Quizz.sharedElements = navigation => {
   return [quizz.id];
 };
 export default Quizz;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  image: {
+    width,
+    height: height,
+  },
+  thumbnailOverlay: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    elevation: 10,
+    zIndex: 10,
+    paddingVertical: scale(5),
+    paddingLeft: scale(5),
+  },
+});

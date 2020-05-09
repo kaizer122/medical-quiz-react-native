@@ -17,7 +17,6 @@ const ActionCard = ({ title, path, icon, faIcon, id, index }) => {
     color: '#FFF',
     style: { fontSize: scale(50) },
   };
-  const { width } = metrics;
   return (
     <Animatable.View key={id} animation="fadeInUp" delay={index * 100}>
       <TouchableOpacity
@@ -25,11 +24,11 @@ const ActionCard = ({ title, path, icon, faIcon, id, index }) => {
         activeOpacity={0.7}
         onPress={navigateToPath}
         style={[
-          styles.container,
-          { width: width / 2 - scale(20) },
+          styles.card,
           index % 2
             ? { marginRight: scale(15), marginLeft: scale(5) }
             : { marginLeft: scale(15), marginRight: scale(5) },
+          index >= 2 ? { marginTop: scale(5) } : { marginBottom: scale(5) },
         ]}>
         <Surface
           style={[styles.surface, { backgroundColor: colors.textAccent2 }]}>
@@ -42,9 +41,7 @@ const ActionCard = ({ title, path, icon, faIcon, id, index }) => {
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    aspectRatio: 1.34,
-  },
+  card: { width: metrics.width / 2 - scale(20) },
   surface: {
     paddingHorizontal: scale(24),
     paddingVertical: scale(12),

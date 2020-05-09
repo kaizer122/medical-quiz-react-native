@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
   headerText: {
     paddingTop: scale(10),
     fontSize: scale(24),
+    lineHeight: scale(-5),
     paddingBottom: scale(5),
   },
 });
