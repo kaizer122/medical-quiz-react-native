@@ -1,0 +1,22 @@
+{
+    "darkTheme": {
+        "primary": "#00b4d8",
+        "accent": "#CAAD82",
+        "textAccent": "#6E9AB5",
+        "textAccent2": "#1d3557",
+        "text": "#ffffff",
+        "textOnSurfaceTitle": "#ffffff",
+        "textOnSurfaceSubtitle": "#ffffff",
+        "background": "#121212"
+    },
+    "lightTheme": {
+        "primary": "#00b4d8",
+        "accent": "#CAAD82",
+        "textAccent": "#457b9d",
+        "textAccent2": "#1d3557",
+        "text": "#000000",
+        "textOnSurfaceTitle": "#ffffff",
+        "textOnSurfaceSubtitle": "#ffffff",
+        "background": "#f6f6f6"
+    }
+}

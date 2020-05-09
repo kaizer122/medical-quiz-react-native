@@ -31,7 +31,9 @@ export default ({
             : { backgroundColor: bgColor },
         ]}
         onPress={onPress}>
-        <Text style={styles.textStyle}>{label}</Text>
+        <Text style={[styles.textStyle, { color: colors.textOnSurfaceTitle }]}>
+          {label}
+        </Text>
       </TouchableOpacity>
     </AnimatableView>
   );
@@ -48,6 +50,5 @@ const styles = StyleSheet.create({
   textStyle: {
     textAlign: 'center',
     fontSize: scale(18),
-    color: '#FFF',
   },
 });

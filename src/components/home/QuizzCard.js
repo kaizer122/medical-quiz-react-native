@@ -35,8 +35,14 @@ export default ({ quizz }) => {
               <View style={styles.overlay} />
               <View style={[StyleSheet.absoluteFill, { flex: 1, opacity }]}>
                 <View style={styles.textPadding}>
-                  <Title style={styles.title}>{quizz.title}</Title>
-                  <Caption style={styles.captionStyle}>
+                  <Title
+                    style={[
+                      styles.title,
+                      { color: colors.textOnSurfaceTitle },
+                    ]}>
+                    {quizz.title}
+                  </Title>
+                  <Caption style={{ color: colors.textOnSurfaceSubtitle }}>
                     {quizz.subtitle}
                   </Caption>
                 </View>
@@ -75,7 +81,6 @@ const styles = StyleSheet.create({
   title: {
     paddingTop: scale(10),
     fontSize: 34,
-    color: '#FFF',
   },
   overlay: {
     flex: 1,
@@ -99,6 +104,5 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'space-between',
   },
-  captionStyle: { color: '#FFF' },
   textPadding: { padding: scale(20) },
 });

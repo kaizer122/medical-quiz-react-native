@@ -3,43 +3,26 @@ import { StyleSheet, View } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { useTheme } from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
-import doctorQuestions from '../../config/questions/doctorQuizz.json';
-import symtopQuestions from '../../config/questions/symptomsQuizz.json';
+import doctorQuiz from '../../config/quizs/doctorQuiz.json';
+import symtopQuiz from '../../config/quizs/symptomsQuiz.json';
+import thirdQuiz from '../../config/quizs/thirdQuiz.json';
 import ActionCard from '../components/home/ActionCard';
 import QuizzCard, { CARD_HEIGHT, CARD_WIDTH } from '../components/home/QuizzCard';
 import { metrics, scale } from '../helpers';
+
 const { width } = metrics;
 const quizzs = [
   {
-    id: 'quizz1',
-    title: 'Renseigner mes symptômes',
-    subtitle:
-      'Répondez a une série de questions et nous générerons un rapport pour vous.',
+    ...symtopQuiz,
     picture: require('../assets/neuro.jpg'),
-    instructions:
-      "Avec cette application, vous allez pouvoir garder trace de l'évolution des symptômes de votre Parkinson. Vous pourrez identifier les changements et améliorer la qualité de l'échange avec vos thérapeutes. N'hésitez pas à revenir ici à intervalles réguliers.",
-    time: 8,
-    questions: symtopQuestions,
   },
   {
-    id: 'quizz2',
-    title: 'Questions pour mon médecin',
-    subtitle:
-      'Répondez a une série de questions et nous générerons un rapport pour vous.',
+    ...doctorQuiz,
     picture: require('../assets/doctor.jpg'),
-    instructions:
-      "Avec cette application, vous allez pouvoir garder trace de l'évolution des symptômes de votre Parkinson. Vous pourrez identifier les changements et améliorer la qualité de l'échange avec vos thérapeutes. N'hésitez pas à revenir ici à intervalles réguliers.",
-    time: 12,
-    questions: doctorQuestions,
   },
   {
-    id: 'quizz3',
-    title: 'Autre chose',
-    subtitle: 'Entire Flat · 1 Bed',
+    ...thirdQuiz,
     picture: require('../assets/pain.jpg'),
-    instructions: '',
-    time: 15,
-    questions: doctorQuestions,
   },
 ];
 const homeCards = [

@@ -14,7 +14,7 @@ const ActionCard = ({ title, path, icon, faIcon, id, index }) => {
   const navigateToPath = () => (path ? navigate(path) : null);
   const iconProps = {
     name: icon,
-    color: '#FFF',
+    color: colors.textOnSurfaceTitle,
     style: styles.icon,
   };
   return (
@@ -34,7 +34,9 @@ const ActionCard = ({ title, path, icon, faIcon, id, index }) => {
           style={[styles.surface, { backgroundColor: colors.textAccent2 }]}>
           {faIcon ? <FA5Icon {...iconProps} /> : <FeatherIcon {...iconProps} />}
 
-          <Title numberOfLines={1} style={styles.title}>
+          <Title
+            numberOfLines={1}
+            style={[styles.title, { color: colors.textOnSurfaceTitle }]}>
             {title}
           </Title>
         </Surface>
@@ -55,6 +57,6 @@ const styles = StyleSheet.create({
     elevation: 6,
     borderRadius: 10,
   },
-  title: { textAlign: 'center', color: '#FFF' },
+  title: { textAlign: 'center' },
   icon: { fontSize: scale(50) },
 });

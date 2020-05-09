@@ -1,0 +1,338 @@
+{
+    "id": "quiz1",
+    "title": "Renseigner mes symptômes",
+    "subtitle": "Répondez a une série de questions et nous générerons un rapport pour vous.",
+    "instructions": "Avec cette application, vous allez pouvoir garder trace de l'évolution des symptômes de votre Parkinson. Vous pourrez identifier les changements et améliorer la qualité de l'échange avec vos thérapeutes. N'hésitez pas à revenir ici à intervalles réguliers.",
+    "time": 8,
+    "questions": [{
+            "index": 1,
+            "question": "Tremblements",
+            "questionExplained": "Mouvements involontaires au repos",
+            "choices": [{
+                    "label": "Jamais",
+                    "score": 0
+                },
+                {
+                    "label": "Rarement",
+                    "score": 1
+                },
+                {
+                    "label": "Occasionnellement",
+                    "score": 2
+                },
+                {
+                    "label": "De temps en temps",
+                    "score": 3
+                },
+                {
+                    "label": "Fréquemment",
+                    "score": 4
+                },
+                {
+                    "label": "Toujours",
+                    "score": 5
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "question": "Rigidité",
+            "questionExplained": "Raideur ou dureté des membres ou du torse",
+            "choices": [{
+                    "label": "Jamais",
+                    "score": 0
+                },
+                {
+                    "label": "Rarement",
+                    "score": 1
+                },
+                {
+                    "label": "Occasionnellement",
+                    "score": 2
+                },
+                {
+                    "label": "De temps en temps",
+                    "score": 3
+                },
+                {
+                    "label": "Fréquemment",
+                    "score": 4
+                },
+                {
+                    "label": "Toujours",
+                    "score": 5
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "question": "Difficultés de la marche ou de l'équilibre",
+            "questionExplained": "Marcher à petits pas ou lentement, démarche hésitante, baisse du balancement naturel des bras",
+            "choices": [{
+                    "label": "Jamais",
+                    "score": 0
+                },
+                {
+                    "label": "Rarement",
+                    "score": 1
+                },
+                {
+                    "label": "Occasionnellement",
+                    "score": 2
+                },
+                {
+                    "label": "De temps en temps",
+                    "score": 3
+                },
+                {
+                    "label": "Fréquemment",
+                    "score": 4
+                },
+                {
+                    "label": "Toujours",
+                    "score": 5
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "question": "Fluctuations motrices, dyskinésie",
+            "questionExplained": "Périodes 'on' et 'off' des troubles moteurs; mouvements soudains et incontrôlés",
+            "choices": [{
+                    "label": "Jamais",
+                    "score": 0
+                },
+                {
+                    "label": "Rarement",
+                    "score": 1
+                },
+                {
+                    "label": "Occasionnellement",
+                    "score": 2
+                },
+                {
+                    "label": "De temps en temps",
+                    "score": 3
+                },
+                {
+                    "label": "Fréquemment",
+                    "score": 4
+                },
+                {
+                    "label": "Toujours",
+                    "score": 5
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "question": "Fatigue, perturbations du Sommeil",
+            "questionExplained": "Difficulté à s'endormir ou à rester endormi, rêves agités, envie de dormir dans la journée",
+            "choices": [{
+                    "label": "Jamais",
+                    "score": 0
+                },
+                {
+                    "label": "Rarement",
+                    "score": 1
+                },
+                {
+                    "label": "Occasionnellement",
+                    "score": 2
+                },
+                {
+                    "label": "De temps en temps",
+                    "score": 3
+                },
+                {
+                    "label": "Fréquemment",
+                    "score": 4
+                },
+                {
+                    "label": "Toujours",
+                    "score": 5
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "question": "Anxiété, Dépression, Mémoire",
+            "questionExplained": "Nerveux ou irritable; tristesse, désespoir; perte du plaisir habituel, problèmes pour réfléchir, trouver des mots ou évaluer",
+            "choices": [{
+                    "label": "Jamais",
+                    "score": 0
+                },
+                {
+                    "label": "Rarement",
+                    "score": 1
+                },
+                {
+                    "label": "Occasionnellement",
+                    "score": 2
+                },
+                {
+                    "label": "De temps en temps",
+                    "score": 3
+                },
+                {
+                    "label": "Fréquemment",
+                    "score": 4
+                },
+                {
+                    "label": "Toujours",
+                    "score": 5
+                }
+            ]
+        },
+        {
+            "index": 7,
+            "question": "Déglutition",
+            "questionExplained": "Difficulté à avaler; bave ou salive excessive dans la bouche",
+            "choices": [{
+                    "label": "Jamais",
+                    "score": 0
+                },
+                {
+                    "label": "Rarement",
+                    "score": 1
+                },
+                {
+                    "label": "Occasionnellement",
+                    "score": 2
+                },
+                {
+                    "label": "De temps en temps",
+                    "score": 3
+                },
+                {
+                    "label": "Fréquemment",
+                    "score": 4
+                },
+                {
+                    "label": "Toujours",
+                    "score": 5
+                }
+            ]
+        },
+        {
+            "index": 8,
+            "question": "Constipation, troubles Gastro-Intestinaux",
+            "questionExplained": "Nausées; Vomissements; Diarhées; Selles espacées",
+            "choices": [{
+                    "label": "Jamais",
+                    "score": 0
+                },
+                {
+                    "label": "Rarement",
+                    "score": 1
+                },
+                {
+                    "label": "Occasionnellement",
+                    "score": 2
+                },
+                {
+                    "label": "De temps en temps",
+                    "score": 3
+                },
+                {
+                    "label": "Fréquemment",
+                    "score": 4
+                },
+                {
+                    "label": "Toujours",
+                    "score": 5
+                }
+            ]
+        },
+        {
+            "index": 9,
+            "question": "Troubles sexuels",
+            "questionExplained": "Changement dans le désir; hyper sexualité; dysfonctionnement érectile",
+            "choices": [{
+                    "label": "Jamais",
+                    "score": 0
+                },
+                {
+                    "label": "Rarement",
+                    "score": 1
+                },
+                {
+                    "label": "Occasionnellement",
+                    "score": 2
+                },
+                {
+                    "label": "De temps en temps",
+                    "score": 3
+                },
+                {
+                    "label": "Fréquemment",
+                    "score": 4
+                },
+                {
+                    "label": "Toujours",
+                    "score": 5
+                }
+            ]
+        },
+        {
+            "index": 10,
+            "question": "Hallucinations",
+            "questionExplained": "Voir, entendre ou sentir des choses qui n'existent pas",
+            "choices": [{
+                    "label": "Jamais",
+                    "score": 0
+                },
+                {
+                    "label": "Rarement",
+                    "score": 1
+                },
+                {
+                    "label": "Occasionnellement",
+                    "score": 2
+                },
+                {
+                    "label": "De temps en temps",
+                    "score": 3
+                },
+                {
+                    "label": "Fréquemment",
+                    "score": 4
+                },
+                {
+                    "label": "Toujours",
+                    "score": 5
+                }
+            ]
+        },
+        {
+            "index": 11,
+            "question": "Illusions",
+            "questionExplained": "Croire des choses fausses, par exemple que tout le monde m'observe",
+            "choices": [{
+                    "label": "Jamais",
+                    "score": 0
+                },
+                {
+                    "label": "Rarement",
+                    "score": 1
+                },
+                {
+                    "label": "Occasionnellement",
+                    "score": 2
+                },
+                {
+                    "label": "De temps en temps",
+                    "score": 3
+                },
+                {
+                    "label": "Fréquemment",
+                    "score": 4
+                },
+                {
+                    "label": "Toujours",
+                    "score": 5
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,80 @@
+{
+    "id": "quiz2",
+    "title": "Questions pour mon médecin",
+    "subtitle": "Répondez a une série de questions et nous générerons un rapport pour vous.",
+    "instructions": "Avec cette application, vous allez pouvoir garder trace de l'évolution des symptômes de votre Parkinson. Vous pourrez identifier les changements et améliorer la qualité de l'échange avec vos thérapeutes. N'hésitez pas à revenir ici à intervalles réguliers.",
+    "time": 12,
+    "questions": [{
+            "index": 1,
+            "question": "Vos médicaments vous conviennent?",
+            "questionExplained": "D'après vous, vos symptômes moteurs (tremblements, rigidité, lenteur) sont correctement maîtrisés avec votre médication actuelle?",
+            "choices": [{
+                "label": "Non, les médicaments ne suffisent plus",
+                "score": 0
+            }, {
+                "label": "Oui, les médicaments me conviennent",
+                "score": 5
+            }]
+        },
+        {
+            "index": 2,
+            "question": "L'effet dure suffisamment?",
+            "questionExplained": "Vos symptômes sont maîtrisés entre deux prises de médicaments (Oui) ou ont tendance depuis quelque temps à revenir avant la prise suivante (Non)",
+            "choices": [{
+                "label": "Oui, les symptômes sont maîtrisés jusqu'à la prise suivante",
+                "score": 0
+            }, {
+                "label": "Non, les symptômes reviennent avant la prise suivante",
+                "score": 5
+            }]
+        },
+        {
+            "index": 3,
+            "question": "Difficultés d'élocution",
+            "questionExplained": "Vos interlocuteurs ont du mal à vous comprendre; vous demandant de parler plus fort ou de répéter?",
+            "choices": [{
+                "label": "Oui",
+                "score": 0
+            }, {
+                "label": "Non",
+                "score": 5
+            }]
+        },
+        {
+            "index": 4,
+            "question": "Troubles du sommeil",
+            "questionExplained": "Difficulté à s'endormir; Difficulté à rester endormi la nuit; Fatigue pendant la journée; Rêves agités et cauchemars désagréables; Parler ou marcher en dormant",
+            "choices": [{
+                "label": "Oui",
+                "score": 0
+            }, {
+                "label": "Non",
+                "score": 5
+            }]
+        },
+        {
+            "index": 5,
+            "question": "Apathie, Tristesse, Déconcentration",
+            "questionExplained": "Manque d'intérêt pour des activités que vous aimiez faire; Déprimé, désespéré ou blues; Difficulté à rester concentré pour lire, regarder la télé ou autres activités; Pensées suicidaires, penser à se faire du mal",
+            "choices": [{
+                "label": "Oui",
+                "score": 0
+            }, {
+                "label": "Non",
+                "score": 5
+            }]
+        },
+        {
+            "index": 6,
+            "question": "Hallucinations ou Illusions",
+            "questionExplained": "Vous arrive-t-il de voir, entendre ou sentir des choses qui n'existent pas? Ou de croire des choses fausses, par exemple que les gens vous épient?",
+            "choices": [{
+                "label": "Oui",
+                "score": 0
+            }, {
+                "label": "Non",
+                "score": 5
+            }]
+        }
+    ]
+}
