@@ -15,7 +15,7 @@ const ActionCard = ({ title, path, icon, faIcon, id, index }) => {
   const iconProps = {
     name: icon,
     color: '#FFF',
-    style: { fontSize: scale(50) },
+    style: styles.icon,
   };
   return (
     <Animatable.View key={id} animation="fadeInUp" delay={index * 100}>
@@ -34,12 +34,17 @@ const ActionCard = ({ title, path, icon, faIcon, id, index }) => {
           style={[styles.surface, { backgroundColor: colors.textAccent2 }]}>
           {faIcon ? <FA5Icon {...iconProps} /> : <FeatherIcon {...iconProps} />}
 
-          <Title style={{ textAlign: 'center', color: '#FFF' }}>{title}</Title>
+          <Title numberOfLines={1} style={styles.title}>
+            {title}
+          </Title>
         </Surface>
       </TouchableOpacity>
     </Animatable.View>
   );
 };
+
+export default ActionCard;
+
 const styles = StyleSheet.create({
   card: { width: metrics.width / 2 - scale(20) },
   surface: {
@@ -50,5 +55,6 @@ const styles = StyleSheet.create({
     elevation: 6,
     borderRadius: 10,
   },
+  title: { textAlign: 'center', color: '#FFF' },
+  icon: { fontSize: scale(50) },
 });
-export default ActionCard;

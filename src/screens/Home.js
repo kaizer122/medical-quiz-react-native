@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginTop: scale(20),
+    marginVertical: scale(20),
   },
   quizzCardsContainer: {
     alignItems: 'center',

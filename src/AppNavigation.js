@@ -42,9 +42,15 @@ const homeStack = createSharedElementStackNavigator(
       header: ({ navigation, scene, previous }) => (
         <Appbar.Header>
           {previous ? (
-            <Appbar.BackAction onPress={() => navigation.goBack()} />
+            <Appbar.BackAction
+              color={'#FFF'}
+              onPress={() => navigation.goBack()}
+            />
           ) : null}
-          <Appbar.Content title={scene.descriptor.options.title} />
+          <Appbar.Content
+            titleStyle={{ color: '#FFF' }}
+            title={scene.descriptor.options.title}
+          />
         </Appbar.Header>
       ),
     },

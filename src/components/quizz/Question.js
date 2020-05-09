@@ -53,10 +53,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: scale(15),
   },
-  buttonStyle: { width: metrics.width / 2 - 5 },
+  buttonStyle: { width: metrics.width / 2 - 1 },
   buttonsDivider: {
-    elevation: 6,
-    zIndex: 5,
     width: 1,
     height: scale(30),
     backgroundColor: Colors.grey400,
@@ -126,14 +124,14 @@ export default ({ questions, setQuizzState, answers, setAnswers }) => {
     <Surface style={styles.container}>
       <View style={styles.headerContainer}>
         <AnimatableView animation={animation}>
-          <Text
+          <Title
             style={[
               styles.headerText,
               dark ? null : { color: colors.textAccent2 },
             ]}>
             {'Question ' + question.index}
-            <Caption> {'/' + questions.length}</Caption>
-          </Text>
+            <Caption>{'/' + questions.length}</Caption>
+          </Title>
         </AnimatableView>
         <Bar
           height={4}

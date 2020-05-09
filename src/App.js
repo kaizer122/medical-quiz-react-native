@@ -6,12 +6,6 @@ import Spinner from './components/Spinner';
 import { ThemeContext, THEME_KEY } from './context/ThemeContext';
 import { darkTheme, lightTheme } from './helpers/themes';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
 export default () => {
   const [isReady, setIsReady] = useState(false);
   const [theme, setTheme] = useState();
@@ -66,3 +60,9 @@ export default () => {
     </PaperProvider>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
