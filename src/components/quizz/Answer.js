@@ -10,13 +10,12 @@ export default ({
   label,
   index,
   animation,
-  setSelectedAnswer,
+  selectAnswer,
   isSelected,
   isLast,
   onAnimationEnd,
 }) => {
   const { colors } = useTheme();
-  const onPress = () => setSelectedAnswer(index);
   const onAnimEnd = () => (isLast ? onAnimationEnd() : null);
   return (
     <AnimatableView
@@ -30,7 +29,7 @@ export default ({
             ? { backgroundColor: colors.primary }
             : { backgroundColor: bgColor },
         ]}
-        onPress={onPress}>
+        onPress={selectAnswer(index)}>
         <Text style={[styles.textStyle, { color: colors.textOnSurfaceTitle }]}>
           {label}
         </Text>

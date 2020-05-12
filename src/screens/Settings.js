@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button, Divider, List, Switch, useTheme } from 'react-native-paper';
 import { ThemeContext } from '../context/ThemeContext';
+import { scale } from '../helpers';
 
 export default () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -50,8 +51,8 @@ export default () => {
 
 const styles = StyleSheet.create({
   listItem: {
-    paddingVertical: 20,
-    paddingHorizontal: 10,
+    paddingVertical: scale(20),
+    paddingHorizontal: scale(10),
   },
   container: {
     flex: 1,

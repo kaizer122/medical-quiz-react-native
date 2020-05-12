@@ -3,6 +3,7 @@
     "title": "Questions pour mon médecin",
     "subtitle": "Répondez a une série de questions et nous générerons un rapport pour vous.",
     "instructions": "Avec cette application, vous allez pouvoir garder trace de l'évolution des symptômes de votre Parkinson. Vous pourrez identifier les changements et améliorer la qualité de l'échange avec vos thérapeutes. N'hésitez pas à revenir ici à intervalles réguliers.",
+    "noScore": true,
     "time": 12,
     "questions": [{
             "index": 1,

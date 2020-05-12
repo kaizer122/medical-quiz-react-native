@@ -13,12 +13,12 @@ import { metrics, scale } from '../helpers';
 const { width } = metrics;
 const quizzs = [
   {
-    ...symtopQuiz,
-    picture: require('../assets/neuro.jpg'),
-  },
-  {
     ...doctorQuiz,
     picture: require('../assets/doctor.jpg'),
+  },
+  {
+    ...symtopQuiz,
+    picture: require('../assets/neuro.jpg'),
   },
   {
     ...thirdQuiz,
@@ -31,7 +31,7 @@ const homeCards = [
     index: 0,
     title: 'Suivi',
     icon: 'calendar',
-    path: null,
+    path: 'Monitoring',
   },
   {
     id: 'homeCard2',

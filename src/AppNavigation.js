@@ -5,6 +5,7 @@ import { createAppContainer } from 'react-navigation';
 import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 import { TransitionPresets } from 'react-navigation-stack';
 import Home from './screens/Home';
+import Monitoring from './screens/Monitoring';
 import Quizz from './screens/Quizz';
 import Settings from './screens/Settings';
 
@@ -34,6 +35,7 @@ const homeStack = createSharedElementStackNavigator(
       navigationOptions: { headerShown: false, ...commonRouteConfig },
     },
     Settings: { screen: Settings, navigationOptions: { title: 'Paramétres' } },
+    Monitoring: { screen: Monitoring, navigationOptions: { title: 'Suivi' } },
   },
   {
     hederMode: 'float',

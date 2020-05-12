@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { View as AnimatableView } from 'react-native-animatable';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Caption, Colors, Surface, Text, Title, useTheme } from 'react-native-paper';
 import { Bar } from 'react-native-progress';
 import { metrics, scale } from '../../helpers';
@@ -9,14 +8,10 @@ import Answer from './Answer';
 
 const styles = StyleSheet.create({
   answersContainer: {
-    marginBottom: scale(56),
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  answersSubContainer: {
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
+    marginBottom: scale(20),
   },
 
   container: {
@@ -30,9 +25,9 @@ const styles = StyleSheet.create({
   questionsContainer: {
     paddingHorizontal: scale(24),
     paddingBottom: scale(10),
+    height: scale(160),
   },
   title: {
-    fontSize: scale(32),
     lineHeight: scale(32),
     marginTop: scale(20),
     marginBottom: scale(10),
@@ -64,7 +59,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   headerContainer: {
-    height: scale(90),
     paddingTop: scale(40),
     marginLeft: scale(24),
   },
@@ -82,35 +76,39 @@ export default ({ questions, setQuizzState, answers, setAnswers }) => {
   const [progress, setProgress] = useState(
     (question.index - 1) / questions.length,
   );
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [animation, setAnimation] = useState('fadeIn');
   useEffect(() => {
     setProgress(question.index / questions.length);
-    setSelectedAnswer(null);
+    setLoading(false);
   }, [question.index, questions.length]);
+
+  const selectAnswer = selected => () => {
+    if (!loading) {
+      setLoading(true);
+      handleNextPress(selected);
+    }
+  };
 
   const bgColor = dark ? '#3F3F3F' : Colors.grey400;
   const { choices, question: title, questionExplained } = question;
 
-  const handlePreviousPress = () => {
-    if (question.index - 2 >= 0) {
-      const updatedAnswers = JSON.parse(JSON.stringify(answers));
-      updatedAnswers.pop();
-      setAnswers(updatedAnswers);
-      setQuestion(questions[question.index - 2]);
-    }
-  };
-
-  const handleNextPress = () => {
+  const handleNextPress = async selected => {
+    const storedAnswer = {
+      answer: choices[selected],
+      question: {
+        questionExplained: question.questionExplained,
+        title: question.question,
+      },
+    };
     if (question.index !== questions.length) {
-      //   setAnswers(answers.push(choices[selectedAnswer]));
       const updatedAnswers = JSON.parse(JSON.stringify(answers));
-      updatedAnswers.push(choices[selectedAnswer]);
+      updatedAnswers.push(storedAnswer);
       setAnswers(updatedAnswers);
       setQuestion(questions[question.index]);
     } else {
       const updatedAnswers = JSON.parse(JSON.stringify(answers));
-      updatedAnswers.push(choices[selectedAnswer]);
+      updatedAnswers.push(storedAnswer);
       setAnswers(updatedAnswers);
       setAnimation('fadeOut');
     }
@@ -120,6 +118,7 @@ export default ({ questions, setQuizzState, answers, setAnswers }) => {
       setQuizzState('ENDED');
     }
   };
+  const fontSize = getFontSize(title);
   return (
     <Surface style={styles.container}>
       <View style={styles.headerContainer}>
@@ -133,64 +132,47 @@ export default ({ questions, setQuizzState, answers, setAnswers }) => {
             <Caption>{'/' + questions.length}</Caption>
           </Title>
         </AnimatableView>
-        <Bar
-          height={4}
-          borderWidth={0}
-          progress={progress}
-          width={metrics.width - scale(48)}
-          color={dark ? colors.text : colors.primary}
-        />
+        <AnimatableView animation={animation === 'fadeOut' ? animation : null}>
+          <Bar
+            height={4}
+            borderWidth={0}
+            progress={progress}
+            width={metrics.width - scale(48)}
+            color={dark ? colors.text : colors.primary}
+          />
+        </AnimatableView>
       </View>
       <AnimatableView animation={animation}>
         <View style={styles.questionsContainer}>
-          <Title style={[styles.title, { color: colors.textAccent }]}>
+          <Title
+            adjustsFontSizeToFit={true}
+            minimumFontScale={0.5}
+            style={[styles.title, { color: colors.textAccent, fontSize }]}>
             {title}
           </Title>
           <Text style={styles.text}>{questionExplained}</Text>
         </View>
       </AnimatableView>
       <View style={styles.answersContainer}>
-        <View style={styles.answersSubContainer}>
-          {choices.map((answer, index) => (
-            <Answer
-              bgColor={bgColor}
-              label={answer.label}
-              animation={animation === 'fadeIn' ? 'fadeInUp' : 'fadeOutUp'}
-              index={index}
-              setSelectedAnswer={setSelectedAnswer}
-              isSelected={index === selectedAnswer}
-              isLast={index + 1 === choices.length}
-              onAnimationEnd={onAnimationEnd}
-            />
-          ))}
-        </View>
+        {choices.map((answer, index) => (
+          <Answer
+            bgColor={bgColor}
+            label={answer.label}
+            animation={animation === 'fadeIn' ? 'fadeInUp' : 'fadeOutUp'}
+            index={index}
+            selectAnswer={selectAnswer}
+            isLast={index + 1 === choices.length}
+            onAnimationEnd={onAnimationEnd}
+          />
+        ))}
       </View>
-      <AnimatableView animation={animation}>
-        <Surface style={styles.buttonsContainer}>
-          <TouchableOpacity
-            style={styles.buttonStyle}
-            onPress={handlePreviousPress}>
-            <Text style={styles.buttonText}>Precedent</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonsDivider}>
-            <Text />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.buttonStyle}
-            disabled={selectedAnswer === null}
-            onPress={handleNextPress}>
-            <Text
-              style={[
-                styles.buttonText,
-                {
-                  color: selectedAnswer !== null ? colors.primary : colors.text,
-                },
-              ]}>
-              {question.index !== questions.length ? 'Suivant' : 'Terminer'}
-            </Text>
-          </TouchableOpacity>
-        </Surface>
-      </AnimatableView>
     </Surface>
   );
+};
+
+const getFontSize = title => {
+  const fSize = Math.floor(
+    Math.sqrt(((metrics.width - scale(24)) * scale(80)) / title.length),
+  );
+  return fSize > scale(32) ? scale(32) : fSize;
 };

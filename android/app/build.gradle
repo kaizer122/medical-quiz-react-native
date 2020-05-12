@@ -128,6 +128,7 @@ android {
     }
 
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.updrs.lite"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
