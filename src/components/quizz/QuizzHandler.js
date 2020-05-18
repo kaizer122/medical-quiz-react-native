@@ -80,7 +80,7 @@ export default quizz => {
           item={reportData}
           score={score}
           maxScore={maxScore}
-          noScore={true}
+          noScore={quizz.noScore}
         />
       );
     default:
